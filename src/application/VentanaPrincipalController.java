@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Iterator;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -28,40 +30,49 @@ public class VentanaPrincipalController {
 		mensaje.setHeaderText(null);
 		
 		int tam = 0;
-		System.out.println("hola puta");
-		System.out.println("longitud area= "+ gramatica.getText().length());
-		System.out.println("longitud field= "+ cadena.getText().length());
+		String[] firstSplit;
+		String[] secondSplit;
+		String[] inicial = null;
 		
 		if (gramatica.getText().length() != 0 && cadena.getText().length() != 0) {
 
 			String[] sistem = gramatica.getText().split("\n");
-
-			for (int i = 0; i < sistem.length - 1; i++) {
-
-				String[] firstSplit = sistem[i].split(":");
-				String[] secondSplit = firstSplit[1].split("|");
-
-				String[] inicial = new String[secondSplit.length + 1];
-				inicial[0] = firstSplit[0];
-
-				for (int k = 0; k < secondSplit.length; k++) {
-					inicial[k + 1] = secondSplit[k];
-				}
-
-				tam = inicial.length;
+			int col = 0;
+			
+			String[][] matriz;
+			
+			for (int i = 0; i < sistem.length; i++) {
 				
-				for (int j = 0; j < inicial.length; j++) {
-					grammar = new String[sistem.length - 1][inicial.length];
-					grammar[i][j] = inicial[j];
+				firstSplit = sistem[i].split(":");
+				secondSplit = firstSplit[1].split("\\|");
+				col = secondSplit.length + 1;	
+				
+			}
+					matriz = new String[sistem.length][col];
+			
+			for (int i = 0; i < sistem.length; i++) {
+				
+				firstSplit = sistem[i].split(":");
+				secondSplit = firstSplit[1].split("\\|");
+					
+				
+				for(int n = 0; n < secondSplit.length+1;n++) {
+					if(n == 0) {
+						matriz[i][n] = firstSplit[n];
+					}else {
+						matriz[i][n] = secondSplit[n-1];
+					}
 				}
-
+				
 			}
 			
-			cyk = new CYK(grammar, cadena.getText());
+			grammar = matriz;
+			
+			cyk = new CYK(grammar, cadena.getText(),tam);
 			
 			
 			mensaje.setTitle("Resultado");
-			mensaje.setContentText("La gramática " + cyk.fillMatrixAndAnswer() + " el lenguaje.");
+			mensaje.setContentText("La gramatica " + cyk.fillMatrixAndAnswer() + " el lenguaje.");
 			mensaje.show();
 			
 		}else {
