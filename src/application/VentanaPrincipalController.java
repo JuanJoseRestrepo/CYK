@@ -29,8 +29,10 @@ public class VentanaPrincipalController {
 		
 		int tam = 0;
 		System.out.println("hola puta");
+		System.out.println("longitud area= "+ gramatica.getText().length());
+		System.out.println("longitud field= "+ cadena.getText().length());
 		
-		if (gramatica.getText() != "" && cadena.getText() != "") {
+		if (gramatica.getText().length() != 0 && cadena.getText().length() != 0) {
 
 			String[] sistem = gramatica.getText().split("\n");
 
