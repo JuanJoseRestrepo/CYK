@@ -12,25 +12,6 @@ public class CYK {
 		this.str = str;
 		
 	}
-
-	//las verificaciones de la cadena pasada se pueden lograr para el grammer, por ende este metodo se encarga de que todo salga al pelo 
-    public String verificacion(String a){
-        String to_ret = "";
-        int count = 0;
-        for(int i = 0; i < np; i++) {
-        	
-            for(count = 0; count < grammer[i].length ; count++){
-            	
-                if(grammer[i][count].equals(a)){
-                	
-                    to_ret += grammer[i][0];
-                    
-                }
-            }
-            
-        }
-        return to_ret;
-    }
     
     //Hace todas las combinaciones posibles de las dos cadenas pasadas, asi pues puede encontrar cual de todas las cadenas sirven 
     public String combinacion(String a, String b){
@@ -50,7 +31,7 @@ public class CYK {
             
         return to_ret;
     }
-	
+
     //Este metodo se encarga principalmente del llenado de la matriz para poder hacer la verificación con la cadena
     //Ademas de esto arroja la respuesta que se necesita para los llamados
     public String fillMatrixAndAnswer() throws ArrayIndexOutOfBoundsException {
@@ -109,5 +90,50 @@ public class CYK {
         
         return respuesta;
     }
+    
+	//las verificaciones de la cadena pasada se pueden lograr para el grammer, por ende este metodo se encarga de que todo salga al pelo 
+    public String verificacion(String a){
+        String to_ret = "";
+        int count = 0;
+        for(int i = 0; i < np; i++) {
+        	
+            for(count = 0; count < grammer[i].length ; count++){
+            	
+                if(grammer[i][count].equals(a)){
+                	
+                    to_ret += grammer[i][0];
+                    
+                }
+            }
+            
+        }
+        return to_ret;
+    }
+
+	public int getNp() {
+		return np;
+	}
+
+	public void setNp(int np) {
+		this.np = np;
+	}
+
+	public String[][] getGrammer() {
+		return grammer;
+	}
+
+	public void setGrammer(String[][] grammer) {
+		this.grammer = grammer;
+	}
+
+	public String getStr() {
+		return str;
+	}
+
+	public void setStr(String str) {
+		this.str = str;
+	}
+
+	
 	
 }
