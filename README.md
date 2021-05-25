@@ -19,5 +19,7 @@ Finally, if the grammar accepts the string successfully, the following window wi
 # CONTRIBUTORS
 
 Juan José Restrepo
+
 Alejandro Suarez
+
 Diego Torres
