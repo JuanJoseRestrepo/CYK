@@ -24,6 +24,8 @@ public class VentanaPrincipalController {
 
 	private CYK cyk;
 
+	
+	//Este método está asignado en el botón check y prepara las entradas (gramática y cadena) para ser ingresadas en el algoritmo
 	public void checkButton() {
 		try {
 			Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
