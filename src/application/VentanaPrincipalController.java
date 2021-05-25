@@ -21,7 +21,7 @@ public class VentanaPrincipalController {
 	private Button check;
 
 	private String[][] grammar;
-
+ 
 	private CYK cyk;
 
 	

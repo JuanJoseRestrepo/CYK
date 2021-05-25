@@ -10,7 +10,7 @@ public class CYK {
     public CYK(String[][] grammer, String str) {
 		this.grammer = grammer;
 		this.str = str;
-		
+		 
 	}
     
     //Hace todas las combinaciones posibles de las dos cadenas pasadas, asi pues puede encontrar cual de todas las cadenas sirven 
@@ -82,7 +82,7 @@ public class CYK {
         //La última columna de la primera fila debe tener el símbolo de inicio, para asi poder verificarlo
         if(matrizDeRespuestas[0][str.length() - 1].indexOf(start) >= 0){
            
-        	respuesta = "acepta";
+        	respuesta = "Genera";
         }
         else{
         	respuesta = "no acepta"; 
