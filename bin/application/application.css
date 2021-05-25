@@ -1,1 +1,165 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+*{
+	
+	button_color:yellow;
+	base_color:green;
+	special_color:rgb(0, 153, 51);
+	text_color:#FFFFFF;
+	-fx-font: bold 10pt "Courier New";
+}
+
+.label{
+	-fx-text-fill: white;
+	-fx-font: bold 10pt "Arial";
+}
+
+.dialog-pane{
+  -fx-border-color:white;
+  -fx-border-width:2.0px;
+ }
+ 
+.dialog {
+	
+	-fx-background-color: black;
+	  -fx-border-color:black;
+ 	 -fx-border-width:2.0px;
+}
+
+.dialog-pane > .button-bar > .container {
+    -fx-padding: 0.833em; /* 10px */
+
+  }
+
+.dialog-pane > .content.label {
+   -fx-padding: 0.5em 0.5em 0.5em 0.5em;
+   -fx-background-color: white;
+   -fx-text-fill:black;
+   -fx-font-size:15.0px;
+}
+
+.dialog *.button {
+	
+	-fx-background-color: white;
+	-fx-font: bold 10pt "Arial";/*HFONT*/
+	-fx-border-radius: 5;
+	-fx-text-fill: white;
+
+}
+
+.dialog-pane:header .header-panel {
+  -fx-background-color: black;
+}
+
+.vehicle {
+	
+	-fx-background-color: transparent;
+	-fx-font: bold 11pt "Arial";
+}
+
+.dialog-pane .button:hover{     
+  -fx-background-color:white;
+  -fx-text-fill:black;
+  -fx-font-weight:bold; 
+ }
+
+.delete {
+	
+	-fx-background-color: black;
+	-fx-text-fill: special_color;
+}
+
+.register{
+	-fx-text-fill: special_color;
+}
+
+
+.label{
+	-fx-text-fill: white;
+	-fx-font: bold 10pt "Courier New";
+}
+
+.pane {
+	-fx-background-color: base_color;
+	-fx-background-size: cover;
+	  -fx-border-color:black;
+  -fx-border-width:2.0px;
+}
+
+#principal{
+	-fx-text-fill: button_color;
+	-fx-background-color:special_color ;
+	-fx-font: bold 11pt "Arial";
+}
+.button {
+	-fx-text-fill: white;
+	-fx-background-color: black;
+	-fx-border-color: white;
+    -fx-border-radius: 10;
+    -fx-padding: 6 10 6 10;
+	-fx-font: bold 8pt "Courier New";
+}
+.root{
+    -fx-background-color: 	#DC143C;
+      -fx-text-fill: red;
+}
+
+.table-view{
+   -fx-background-color: transparent;
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+/* Spaltenköpfe
+    Struktur column-header-background -> column-header */
+
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #616161;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #424242;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */  
+}
+.choice-box {
+  -fx-background-color: black;
+  -fx-mark-color: orange; 
+}
+
+
+.choice-box > .label { -fx-text-fill: white; }
+
+.choice-box .context-menu { -fx-background-color: #FFFFFF; }
+
+.choice-box .menu-item:focused { -fx-background-color: orange; }
+
+.choice-box .menu-item > .label { -fx-text-fill: white; }
+
+.choice-box .menu-item:focused > .label { -fx-text-fill: #FFFFFF; }
+
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}

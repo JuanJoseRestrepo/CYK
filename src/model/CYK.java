@@ -2,21 +2,19 @@ package model;
 
 public class CYK {
 
+	//Aqui se declara las variables para el tamaño, la gramatica y la cadena que se recibe para  el lenguaje
 	private int np = 0;
 	private String[][] grammer;
 	private String str;
-	private int tam;
-	
-	
-	
-    public CYK(String[][] grammer, String str,int tam) {
+
+    public CYK(String[][] grammer, String str) {
 		this.grammer = grammer;
 		this.str = str;
-		this.tam = tam;
+		
 	}
 
-	//Checks if the passed string can be achieved for the grammer
-    public String check(String a){
+	//las verificaciones de la cadena pasada se pueden lograr para el grammer, por ende este metodo se encarga de que todo salga al pelo 
+    public String verificacion(String a){
         String to_ret = "";
         int count = 0;
         for(int i = 0; i < np; i++) {
@@ -34,8 +32,8 @@ public class CYK {
         return to_ret;
     }
     
-    //Makes all possible combinations out of the two string passed
-    public String combinat(String a, String b){
+    //Hace todas las combinaciones posibles de las dos cadenas pasadas, asi pues puede encontrar cual de todas las cadenas sirven 
+    public String combinacion(String a, String b){
         String to_ret = "", temp = "";
         
             for(int i = 0; i < a.length(); i++){
@@ -44,7 +42,7 @@ public class CYK {
                 	
                     temp = "";
                     temp += a.charAt(i) + "" +  b.charAt(j);
-                    to_ret += check(temp);
+                    to_ret += verificacion(temp);
                     
                 }
                 
@@ -53,14 +51,16 @@ public class CYK {
         return to_ret;
     }
 	
-    public String fillMatrixAndAnswer() {
+    //Este metodo se encarga principalmente del llenado de la matriz para poder hacer la verificación con la cadena
+    //Ademas de esto arroja la respuesta que se necesita para los llamados
+    public String fillMatrixAndAnswer() throws ArrayIndexOutOfBoundsException {
     	String r;
     	String st;
     	String  start = "S";
     	int count = 0;
     	np = grammer.length;
-    	String response = "";
-    	String ans_mat[][] = new String[10][10];
+    	String respuesta = "";
+    	String matrizDeRespuestas[][] = new String[10][10];
     	
     	
         for(int i = 0; i < str.length(); i++){
@@ -81,10 +81,10 @@ public class CYK {
                 }   
                 
             }
-            ans_mat[i][i] = r;
+            matrizDeRespuestas[i][i] = r;
         }
         
-        //Fill the rest of the matrix
+        //Esta parte del codigo se encarga del llenado de la matriz
         for(int i = 1; i < str.length(); i++){
         	
             for(int j = i; j < str.length(); j++){
@@ -92,22 +92,22 @@ public class CYK {
                 r = "";
                 
                 for(int k = j - i; k < j; k++){
-                    r += combinat(ans_mat[j - i][k], ans_mat[k + 1][j]);
+                    r += combinacion(matrizDeRespuestas[j - i][k], matrizDeRespuestas[k + 1][j]);
                 }
-                ans_mat[j - i][j] = r;
+                matrizDeRespuestas[j - i][j] = r;
             }
         }
         
-        //The last column of first row should have the start symbol
-        if(ans_mat[0][str.length() - 1].indexOf(start) >= 0){
+        //La última columna de la primera fila debe tener el símbolo de inicio, para asi poder verificarlo
+        if(matrizDeRespuestas[0][str.length() - 1].indexOf(start) >= 0){
            
-        	response = "acepta";
+        	respuesta = "acepta";
         }
         else{
-        	response = "no acepta";
+        	respuesta = "no acepta"; 
         }
         
-        return response;
+        return respuesta;
     }
 	
 }
